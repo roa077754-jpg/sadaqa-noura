@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>صدقة جارية | الحاجة نورة سالم الشنيكات</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Tahoma, Arial, sans-serif;
+  background: #faf7f0;
+  color: #42372e;
+  text-align: center;
+  line-height: 1.9;
+}
+header {
+  background: linear-gradient(135deg, #6c493b, #b18a58);
+  color: white;
+  padding: 35px 18px;
+}
+header .bismillah { font-size: 23px; }
+h1 { font-size: 27px; margin: 12px 0; }
+main { max-width: 720px; margin: auto; padding: 18px; }
+.card {
+  background: #fffdf9;
+  border: 1px solid #e8d8bd;
+  border-radius: 18px;
+  padding: 22px 17px;
+  margin: 18px 0;
+  box-shadow: 0 4px 15px #6543210d;
+}
+h2 { color: #916b3e; font-size: 21px; }
+.fatiha {
+  font-size: 22px;
+  line-height: 2.25;
+  color: #594332;
+}
+button {
+  font-family: inherit;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 17px;
+  margin: 5px;
+  background: #8b6944;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+button:active { transform: scale(.98); }
+.secondary { background: #e9ddca; color: #493729; }
+.counter {
+  font-size: 43px;
+  font-weight: bold;
+  color: #8b6944;
+  margin: 8px;
+}
+.dua { font-size: 19px; }
+footer { padding: 20px; color: #786956; font-size: 13px; }
+audio { width: 100%; margin: 12px 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+  <h1>صدقة جارية عن روح</h1>
+  <h1>الحاجة نورة سالم الشنيكات</h1>
+  <p>اللهم ارحمها رحمةً تطمئن بها روحها وتقرّ بها عينها</p>
+</header>
+
+<main>
+  <section class="card">
+    <h2>🤍 سورة الفاتحة</h2>
+    <p>اقرؤوها وادعوا لها بالرحمة والمغفرة</p>
+    <div class="fatiha">
+      بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ<br>
+      الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ<br>
+      الرَّحْمَٰنِ الرَّحِيمِ<br>
+      مَالِكِ يَوْمِ الدِّينِ<br>
+      إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ<br>
+      اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ<br>
+      صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ<br>
+      غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ
+    </div>
+    <p>آمين يا رب العالمين</p>
+  </section>
+
+  <section class="card">
+    <h2>🎧 الاستماع إلى سورة الفاتحة</h2>
+    <p>بصوت الشيخ ماهر المعيقلي</p>
+    <audio controls preload="none">
+      <source src="https://server8.mp3quran.net/maher/001.mp3" type="audio/mpeg">
+      متصفحك لا يدعم تشغيل الصوت.
+    </audio>
+    <a href="https://www.mp3quran.net/ar/maher/1" target="_blank" rel="noopener">
+      الاستماع من موقع القرآن الكريم
+    </a>
+  </section>
+
+  <section class="card">
+    <h2>🤲 دعاء للمرحومة</h2>
+    <p class="dua" id="dua">اللهم اغفر لها وارحمها، وعافها واعفُ عنها، وأكرم نزلها ووسّع مدخلها.</p>
+    <button onclick="nextDua()">دعاء آخر</button>
+  </section>
+
+  <section class="card">
+    <h2>📿 المسبحة الإلكترونية</h2>
+    <p>سبّحوا الله واذكروه</p>
+    <div class="counter" id="count">0</div>
+    <button onclick="increase()">سبحان الله</button>
+    <button class="secondary" onclick="resetCount()">إعادة العدّ</button>
+  </section>
+
+  <section class="card">
+    <h2>🌿 أذكار قصيرة</h2>
+    <button onclick="showZikr('سُبْحَانَ اللَّهِ وَبِحَمْدِهِ')">سبحان الله وبحمده</button>
+    <button onclick="showZikr('أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ')">أستغفر الله</button>
+    <button onclick="showZikr('اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّد')">الصلاة على النبي ﷺ</button>
+    <p class="dua" id="zikr" aria-live="polite"></p>
+  </section>
+
+  <section class="card">
+    <h2>شاركوا الأجر والدعاء 🤍</h2>
+    <p>لعلّ دعوةً صادقةً تكون نورًا لها في قبرها.</p>
+    <button onclick="sharePage()">مشاركة الصفحة</button>
+    <button class="secondary" onclick="copyLink()">نسخ رابط الصفحة</button>
+    <p id="shareMessage" aria-live="polite"></p>
+  </section>
+</main>
+
+<footer>
+  اللهم اجعل قبرها روضةً من رياض الجنة، واجمعنا بها في الفردوس الأعلى.
+  <br>نسألكم الدعاء لها بالرحمة والمغفرة.
+</footer>
+
+<script>
+const duas = [
+  "اللهم اغفر لها وارحمها، وعافها واعفُ عنها، وأكرم نزلها ووسّع مدخلها.",
+  "اللهم آنس وحشتها، ونوّر قبرها، واجعل قبرها روضةً من رياض الجنة.",
+  "اللهم اجعل ما قدّمته من خير في ميزان حسناتها، وارفع درجتها في المهديين.",
+  "اللهم أسكنها الفردوس الأعلى من غير حساب ولا سابق عذاب.",
+  "اللهم اجعل لها من كل دعوةٍ رحمة، ومن كل استغفارٍ نورًا ومغفرة."
+];
+let duaIndex = 0;
+let count = 0;
+
+function nextDua() {
+  duaIndex = (duaIndex + 1) % duas.length;
+  document.getElementById("dua").textContent = duas[duaIndex];
+}
+function increase() {
+  count++;
+  document.getElementById("count").textContent = count;
+}
+function resetCount() {
+  count = 0;
+  document.getElementById("count").textContent = count;
+}
+function showZikr(text) {
+  document.getElementById("zikr").textContent = text;
+}
+async function sharePage() {
+  const message = "صدقة جارية عن روح الحاجة نورة سالم الشنيكات، نسألكم الدعاء لها بالرحمة والمغفرة.";
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: document.title, text: message, url: location.href });
+    } catch (e) {}
+  } else {
+    copyLink();
+  }
+}
+async function copyLink() {
+  const message = document.getElementById("shareMessage");
+  try {
+    await navigator.clipboard.writeText(location.href);
+    message.textContent = "تم نسخ الرابط.";
+  } catch (e) {
+    message.textContent = "انسخي رابط الصفحة من شريط العنوان بعد نشرها.";
+  }
+}
+</script>
+
+</body>
+</html>
